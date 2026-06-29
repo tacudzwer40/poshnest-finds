@@ -1,3 +1,4 @@
+
 # PoshNest Finds
 
 An affiliate marketing site for the **PoshNest Finds** Pinterest account (*Aesthetic Home & Decor Ideas*). Built with Next.js 14, TypeScript, and Tailwind CSS.
@@ -114,3 +115,5 @@ public/               # Static assets
 ## License & disclosure
 
 This site contains affiliate links. Every page that links to Amazon displays an affiliate disclosure. See `/disclosure` for the full FTC-compliant text.
+=======
+# poshnest-finds
