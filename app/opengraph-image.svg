@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FAF6F1"/>
+  <circle cx="200" cy="120" r="240" fill="#C2744A" opacity="0.08"/>
+  <circle cx="1000" cy="560" r="280" fill="#8A9A82" opacity="0.08"/>
+  <g transform="translate(80 200)">
+    <text font-family="Georgia, serif" font-style="italic" font-size="120" font-weight="500" fill="#3A2E2A">PoshNest</text>
+    <text x="0" y="80" font-family="Helvetica, Arial, sans-serif" font-size="42" letter-spacing="8" fill="#5C4A44">FINDS</text>
+    <text x="0" y="180" font-family="Georgia, serif" font-size="42" fill="#3A2E2A">Aesthetic Home &amp; Decor Ideas</text>
+  </g>
+</svg>

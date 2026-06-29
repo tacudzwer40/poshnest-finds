@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    @apply selection:bg-terracotta/20;
+  }
+
+  /* Custom Aesthetic Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-cream;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-espresso/10 rounded-full;
+    border: 2px solid theme('colors.cream');
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-terracotta/40;
+  }
+
+  body {
+    @apply text-espresso font-sans overflow-x-hidden;
+    background-color: transparent;
+  }
+
+  /* This creates a living background effect using a high-end aesthetic image */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    /* Soft, light-filtering minimalist interior that feels like a luxury retreat */
+    background-image:
+      linear-gradient(rgba(250, 246, 241, 0.8), rgba(250, 246, 241, 0.88)),
+      url('https://images.unsplash.com/photo-1615873968403-89e0686282ec?auto=format&fit=crop&w=2500&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: slow-zoom 60s ease-in-out infinite alternate;
+  }
+
+  @keyframes slow-zoom {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.05);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif tracking-tight text-espresso;
+  }
+
+  /* Smooth in-page anchor scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+
+  /* Fancy shimmer effect for primary buttons */
+  .btn-primary {
+    @apply btn bg-terracotta text-cream shadow-sm relative overflow-hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0));
+    transform: rotate(30deg);
+    transition: all 0.7s;
+  }
+
+  .btn-primary:hover::after {
+    left: 120%;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-espresso/15 bg-cream/90 px-3 py-1 text-xs font-medium uppercase tracking-wider text-espresso-soft backdrop-blur-sm transition-all duration-300;
+  }
+
+  .chip:hover {
+    @apply border-terracotta text-terracotta bg-cream;
+    transform: translateY(-1px);
+  }
+
+  .card {
+    @apply rounded-2xl bg-white/75 backdrop-blur-md border border-espresso/10 transition-all duration-300 hover:-translate-y-1;
+    box-shadow: 0 4px 24px -12px rgba(58, 46, 42, 0.2);
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 40px -12px rgba(58, 46, 42, 0.3);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-[1400px] px-5 sm:px-8;
+  }
+
+
+  .prose-posh {
+    @apply max-w-prose;
+  }
+
+  .prose-posh p {
+    @apply my-5 leading-relaxed text-espresso/85;
+  }
+
+  .prose-posh h2 {
+    @apply mt-12 mb-4 text-3xl;
+  }
+
+  .prose-posh h3 {
+    @apply mt-8 mb-3 text-xl;
+  }
+
+  .prose-posh ul {
+    @apply my-5 space-y-2 list-disc list-outside pl-6 text-espresso/85;
+  }
+
+  .prose-posh a {
+    @apply text-terracotta underline-offset-4 hover:underline;
+  }
+
+  .prose-posh blockquote {
+    @apply my-6 border-l-4 border-terracotta/60 pl-5 italic text-espresso-soft;
+  }
+
+  .btn-danger {
+    @apply btn bg-terracotta/10 text-terracotta-dark border border-terracotta/30 hover:bg-terracotta/15;
+  }
+
+  .admin-input {
+    @apply w-full rounded-lg border border-espresso/15 bg-cream px-4 py-2.5 text-sm text-espresso placeholder:text-espresso-soft/60 focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-offset-2 focus:ring-offset-cream disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .admin-textarea {
+    @apply w-full rounded-lg border border-espresso/15 bg-cream px-4 py-2.5 text-sm text-espresso placeholder:text-espresso-soft/60 font-sans leading-relaxed focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-offset-2 focus:ring-offset-cream;
+  }
+
+  .admin-label {
+    @apply block text-xs uppercase tracking-widest text-espresso-soft mb-1.5;
+  }
+
+  .admin-help {
+    @apply mt-1.5 text-xs text-espresso-soft/80;
+  }
+
+  .admin-table {
+    @apply w-full text-left;
+  }
+
+  .admin-table th {
+    @apply text-left text-xs uppercase tracking-widest text-espresso-soft font-medium px-4 py-3 border-b border-espresso/10 bg-ivory/40;
+  }
+
+  .admin-table td {
+    @apply px-4 py-3 text-sm border-b border-espresso/5 align-middle;
+  }
+
+  .admin-table tbody tr:hover td {
+    @apply bg-ivory/40;
+  }
+
+  .stat-card {
+    @apply card p-5;
+  }
+
+  .stat-card .stat-value {
+    @apply mt-2 font-serif text-3xl text-espresso;
+  }
+
+  .stat-card .stat-label {
+    @apply text-xs uppercase tracking-widest text-espresso-soft;
+  }
+}
+
+/* Subtle paper-grain texture using SVG noise, keeps the cream feeling tactile */
+.bg-grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.23  0 0 0 0 0.18  0 0 0 0 0.16  0 0 0 0.025 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
