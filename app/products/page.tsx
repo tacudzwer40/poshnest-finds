@@ -81,7 +81,7 @@ export default function ProductsPage() {
           return (
             <section key={cat} id={cat.replace(/\s+/g, '-').toLowerCase()}>
               <Reveal width="100%">
-                <div className="flex items-baseline justify-between mb-5">
+                <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
                   <h2 className="font-serif text-2xl sm:text-3xl text-espresso">{cat}</h2>
                   <span className="text-xs uppercase tracking-widest text-espresso-soft">
                     {list.length} {list.length === 1 ? 'piece' : 'pieces'}

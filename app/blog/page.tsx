@@ -14,7 +14,7 @@ export default async function BlogIndexPage() {
     <div className="container-wide py-12 sm:py-16">
       <header className="max-w-2xl">
         <p className="text-xs uppercase tracking-[0.25em] text-terracotta">The Journal</p>
-        <h1 className="mt-2 font-serif text-5xl sm:text-6xl text-espresso">
+        <h1 className="mt-2 font-serif text-4xl text-espresso sm:text-6xl">
           Styling guides & home ideas
         </h1>
         <p className="mt-5 text-espresso-soft leading-relaxed">

@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <article className="container-narrow py-12 sm:py-20">
       <p className="text-xs uppercase tracking-[0.25em] text-terracotta">About PoshNest Finds</p>
-      <h1 className="mt-2 font-serif text-5xl text-espresso">
+      <h1 className="mt-2 font-serif text-4xl text-espresso sm:text-5xl">
         Welcome to <span className="italic text-terracotta-dark">PoshNest Finds</span>
       </h1>
 

@@ -14,12 +14,12 @@ export async function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-cream/80 border-b border-espresso/10">
-      <div className="container-wide flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
+      <div className="container-wide flex h-16 items-center justify-between gap-3">
+        <Link href="/" className="group flex min-w-0 items-center gap-2">
           <MotionLogo />
-          <span className="font-serif text-xl italic text-espresso tracking-tight">
+          <span className="truncate font-serif text-lg italic tracking-tight text-espresso sm:text-xl">
             PoshNest
-            <span className="font-sans not-italic text-[0.65rem] uppercase tracking-[0.25em] text-espresso-soft ml-2 align-middle">
+            <span className="ml-1 align-middle font-sans text-[0.6rem] uppercase tracking-[0.18em] text-espresso-soft not-italic sm:ml-2 sm:text-[0.65rem] sm:tracking-[0.25em]">
               Finds
             </span>
           </span>
@@ -53,7 +53,7 @@ export async function Navbar() {
                 <line x1="3" y1="18" x2="21" y2="18" />
               </svg>
             </summary>
-            <div className="absolute right-0 mt-2 w-44 rounded-xl border border-espresso/10 bg-cream shadow-lg p-2 flex flex-col">
+            <div className="absolute right-0 mt-2 flex w-[min(16rem,calc(100vw-2rem))] flex-col rounded-xl border border-espresso/10 bg-cream p-2 shadow-lg">
               {links.map((l) => (
                 <Link key={l.href} href={l.href} className="px-3 py-2 rounded-md text-sm hover:bg-ivory">
                   {l.label}

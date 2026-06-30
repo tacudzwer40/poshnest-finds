@@ -14,14 +14,14 @@ export function Hero() {
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
                     <span className="chip">Aesthetic Home & Decor Ideas</span>
-                    <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-espresso">
+                    <h1 className="mt-5 font-serif text-4xl leading-[1.08] tracking-tight text-espresso sm:text-6xl lg:text-7xl">
                         Your home should feel like a <span className="italic text-terracotta-dark">luxury retreat</span>.
                     </h1>
-                    <p className="mt-6 max-w-xl text-lg text-espresso-soft leading-relaxed">
+                    <p className="mt-6 max-w-xl text-base leading-relaxed text-espresso-soft sm:text-lg">
                         I’m Zviko, and I spend hours hunting down the prettiest, most aesthetic home upgrades on Amazon so you don’t have to. Think renter-friendly finds that look way more expensive than they are.
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-4">
+                    <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                         <Link href="/products" className="btn-primary">
                             Browse the Finds
                         </Link>

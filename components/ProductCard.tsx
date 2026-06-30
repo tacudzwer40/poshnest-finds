@@ -57,9 +57,9 @@ export function ProductCard({ product, compact, index = 0 }: Props) {
           <p className="mt-1.5 text-sm text-espresso-soft line-clamp-2">
             {product.tagline}
           </p>
-          <div className="mt-4 flex items-center justify-between">
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
             <span className="text-sm font-medium text-espresso bg-ivory/50 px-2 py-0.5 rounded">{product.price}</span>
-            <span className="inline-flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-terracotta group-hover:gap-2 transition-all">
+            <span className="inline-flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-terracotta transition-all group-hover:gap-2">
               View on Amazon
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />

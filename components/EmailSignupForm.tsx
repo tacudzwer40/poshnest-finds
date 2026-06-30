@@ -48,7 +48,7 @@ export function EmailSignupForm({ dark = false }: { dark?: boolean }) {
     : 'bg-cream text-espresso placeholder:text-espresso-soft border border-espresso/15';
 
   const submitBase =
-    'btn-primary whitespace-nowrap';
+    'btn-primary w-full whitespace-nowrap sm:w-auto';
   const submitTheme = dark ? '' : '';
 
   return (

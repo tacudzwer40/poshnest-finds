@@ -20,7 +20,8 @@ const inter = Inter({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
 export const viewport: Viewport = {
-  width: 1024,
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export const metadata: Metadata = {
