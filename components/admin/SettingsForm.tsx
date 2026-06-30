@@ -93,7 +93,7 @@ export function SettingsForm({ initial }: { initial: SettingsInput }) {
           value={form.amazon_tag}
           onChange={(e) => update('amazon_tag', e.target.value)}
           className="admin-input font-mono"
-          placeholder="poshnestfinds-20"
+          placeholder="zdamazon04-20"
           maxLength={100}
         />
         <p className="admin-help">

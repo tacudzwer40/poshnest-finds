@@ -35,10 +35,10 @@
 
   body {
     @apply text-espresso font-sans overflow-x-hidden;
-    background-color: transparent;
+    background-color: #fbf7f0;
   }
 
-  /* This creates a living background effect using a high-end aesthetic image */
+  /* Soft editorial backdrop that keeps the app polished without competing with products. */
   body::before {
     content: '';
     position: fixed;
@@ -48,12 +48,11 @@
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    /* Soft, light-filtering minimalist interior that feels like a luxury retreat */
     background-image:
-      linear-gradient(rgba(250, 246, 241, 0.8), rgba(250, 246, 241, 0.88)),
-      url('https://images.unsplash.com/photo-1615873968403-89e0686282ec?auto=format&fit=crop&w=2500&q=80');
-    background-size: cover;
-    background-position: center;
+      linear-gradient(90deg, rgba(250, 246, 241, 0.97), rgba(250, 246, 241, 0.88)),
+      url('https://m.media-amazon.com/images/I/41+aE3OKH1L._AC_SL1000_.jpg');
+    background-size: cover, min(720px, 120vw);
+    background-position: center, right top;
     background-attachment: fixed;
     background-repeat: no-repeat;
     animation: slow-zoom 60s ease-in-out infinite alternate;
@@ -84,12 +83,11 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold tracking-wide transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
   }
 
-  /* Fancy shimmer effect for primary buttons */
   .btn-primary {
-    @apply btn bg-terracotta text-cream shadow-sm relative overflow-hidden;
+    @apply btn relative overflow-hidden bg-espresso text-cream shadow-[0_12px_30px_-18px_rgba(58,46,42,0.7)] hover:-translate-y-0.5 hover:bg-terracotta-dark;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -111,8 +109,12 @@
     left: 120%;
   }
 
+  .btn-secondary {
+    @apply btn border border-espresso/15 bg-white/80 text-espresso shadow-sm backdrop-blur hover:-translate-y-0.5 hover:border-terracotta/40 hover:bg-cream hover:text-terracotta-dark;
+  }
+
   .chip {
-    @apply inline-flex max-w-full items-center gap-1 rounded-full border border-espresso/15 bg-cream/90 px-3 py-1 text-xs font-medium uppercase tracking-wider leading-tight text-espresso-soft backdrop-blur-sm transition-all duration-300;
+    @apply inline-flex max-w-full items-center gap-1 rounded-md border border-espresso/15 bg-white/80 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-wider leading-tight text-espresso-soft shadow-sm backdrop-blur-sm transition-all duration-300;
   }
 
   .chip:hover {
@@ -121,12 +123,12 @@
   }
 
   .card {
-    @apply rounded-2xl bg-white/75 backdrop-blur-md border border-espresso/10 transition-all duration-300 hover:-translate-y-1;
-    box-shadow: 0 4px 24px -12px rgba(58, 46, 42, 0.2);
+    @apply rounded-lg bg-white/90 backdrop-blur-md border border-espresso/10 transition-all duration-300 hover:-translate-y-1;
+    box-shadow: 0 1px 2px rgba(58, 46, 42, 0.06), 0 18px 40px -32px rgba(58, 46, 42, 0.45);
   }
 
   .card:hover {
-    box-shadow: 0 12px 40px -12px rgba(58, 46, 42, 0.3);
+    box-shadow: 0 1px 2px rgba(58, 46, 42, 0.08), 0 24px 56px -30px rgba(58, 46, 42, 0.55);
   }
 
   body::after {
@@ -143,7 +145,7 @@
   }
 
   .container-narrow {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-8;
+    @apply mx-auto w-full max-w-4xl px-4 sm:px-8;
   }
 
   .container-wide {
@@ -156,7 +158,7 @@
   }
 
   .prose-posh p {
-    @apply my-5 leading-relaxed text-espresso/85;
+    @apply my-5 leading-relaxed text-espresso/80;
   }
 
   .prose-posh h2 {
@@ -168,7 +170,7 @@
   }
 
   .prose-posh ul {
-    @apply my-5 space-y-2 list-disc list-outside pl-6 text-espresso/85;
+    @apply my-5 space-y-2 list-disc list-outside pl-6 text-espresso/80;
   }
 
   .prose-posh a {

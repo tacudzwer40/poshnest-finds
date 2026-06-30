@@ -1,3 +1,5 @@
+import { AMAZON_ASSOCIATE_TAG } from './brand';
+
 /**
  * Build a tagged Amazon Associates URL for the given ASIN.
  *
@@ -9,7 +11,7 @@
  * requirement that the relationship be disclosed.
  */
 export function amazonUrl(asin: string, opts?: { marketplace?: string }): string {
-  const tag = process.env.NEXT_PUBLIC_AMAZON_TAG ?? '';
+  const tag = process.env.NEXT_PUBLIC_AMAZON_TAG ?? AMAZON_ASSOCIATE_TAG;
   const marketplace = opts?.marketplace ?? 'www.amazon.com';
   if (!asin) throw new Error('amazonUrl: asin is required');
   const url = `https://${marketplace}/dp/${asin}/`;
@@ -23,4 +25,3 @@ export const AMAZON_DISCLOSURE_SHORT =
 export function productHref(p: { asin: string }): string {
   return amazonUrl(p.asin);
 }
-

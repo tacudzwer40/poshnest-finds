@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getSession } from '@/lib/auth';
+import { PINTEREST_URL } from '@/lib/brand';
 import { MotionLogo } from './MotionLogo';
 
 const links = [
@@ -13,7 +14,7 @@ export async function Navbar() {
   const session = await getSession();
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-cream/80 border-b border-espresso/10">
+    <header className="sticky top-0 z-40 border-b border-espresso/10 bg-cream/90 backdrop-blur-xl">
       <div className="container-wide flex h-16 items-center justify-between gap-3">
         <Link href="/" className="group flex min-w-0 items-center gap-2">
           <MotionLogo />
@@ -25,27 +26,33 @@ export async function Navbar() {
           </span>
         </Link>
 
-        {/* Center nav (desktop) */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden items-center rounded-lg border border-espresso/10 bg-white/60 p-1 shadow-sm md:flex">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="px-3 py-2 rounded-full text-sm text-espresso-soft hover:text-espresso hover:bg-ivory transition"
+              className="rounded-md px-3 py-2 text-sm font-medium text-espresso-soft transition hover:bg-cream hover:text-espresso"
             >
               {l.label}
             </Link>
           ))}
-          <Link href="/products" className="btn-primary ml-3 !py-1.5 !px-4 text-xs">
+          <Link href="/products" className="btn-primary ml-2 !min-h-9 !px-4 !py-1.5 text-xs">
             Shop Finds
           </Link>
         </nav>
 
-        {/* Right side: admin lock icon + mobile menu */}
         <div className="flex items-center gap-2">
           <AdminLock signedIn={!!session} />
-          <details className="md:hidden relative">
-            <summary className="list-none cursor-pointer p-2 rounded-md hover:bg-ivory">
+          <a
+            href={PINTEREST_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden h-10 items-center justify-center rounded-lg border border-espresso/15 bg-white/70 px-3 text-xs font-semibold uppercase tracking-wider text-terracotta-dark shadow-sm transition hover:border-terracotta/40 hover:bg-cream sm:inline-flex"
+          >
+            Pinterest
+          </a>
+          <details className="relative md:hidden">
+            <summary className="list-none cursor-pointer rounded-lg border border-espresso/15 bg-white/70 p-2 shadow-sm hover:bg-cream">
               <span className="sr-only">Menu</span>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <line x1="3" y1="6" x2="21" y2="6" />
@@ -53,12 +60,20 @@ export async function Navbar() {
                 <line x1="3" y1="18" x2="21" y2="18" />
               </svg>
             </summary>
-            <div className="absolute right-0 mt-2 flex w-[min(16rem,calc(100vw-2rem))] flex-col rounded-xl border border-espresso/10 bg-cream p-2 shadow-lg">
+            <div className="absolute right-0 mt-2 flex w-[min(18rem,calc(100vw-2rem))] flex-col rounded-lg border border-espresso/10 bg-cream p-2 shadow-xl">
               {links.map((l) => (
-                <Link key={l.href} href={l.href} className="px-3 py-2 rounded-md text-sm hover:bg-ivory">
+                <Link key={l.href} href={l.href} className="rounded-md px-3 py-2 text-sm font-medium hover:bg-ivory">
                   {l.label}
                 </Link>
               ))}
+              <a
+                href={PINTEREST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md px-3 py-2 text-sm font-medium text-terracotta-dark hover:bg-ivory"
+              >
+                Pinterest
+              </a>
             </div>
           </details>
         </div>
@@ -76,11 +91,11 @@ function AdminLock({ signedIn }: { signedIn: boolean }) {
       href={href}
       aria-label={label}
       title={label}
-      className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full
-                  border transition-all duration-200
+      className={`relative inline-flex h-10 w-10 items-center justify-center rounded-lg
+                  border bg-white/70 shadow-sm transition-all duration-200
                   ${signedIn
-          ? 'border-terracotta/40 bg-terracotta/10 text-terracotta hover:bg-terracotta/15'
-          : 'border-espresso/15 bg-cream text-espresso-soft hover:border-espresso/30 hover:text-espresso'
+          ? 'border-terracotta/40 text-terracotta hover:bg-terracotta/10'
+          : 'border-espresso/15 text-espresso-soft hover:border-espresso/30 hover:bg-cream hover:text-espresso'
         }`}
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -90,7 +105,7 @@ function AdminLock({ signedIn }: { signedIn: boolean }) {
       {signedIn && (
         <span
           aria-hidden
-          className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-terracotta ring-2 ring-cream"
+          className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-terracotta ring-2 ring-cream"
         />
       )}
     </Link>

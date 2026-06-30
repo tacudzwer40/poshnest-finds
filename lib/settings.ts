@@ -1,12 +1,13 @@
 import 'server-only';
 import { ensureDb, sql } from './db';
+import { AMAZON_ASSOCIATE_TAG } from './brand';
 
 export type SettingsMap = Record<string, string>;
 
 const DEFAULTS: SettingsMap = {
   site_title: 'PoshNest Finds',
   site_tagline: 'Aesthetic Home & Decor Ideas',
-  amazon_tag: '',
+  amazon_tag: AMAZON_ASSOCIATE_TAG,
   newsletter_endpoint: '',
   email: 'info@poshnestfinds.com',
   disclosure_text: 'As an Amazon Associate, I earn from qualifying purchases.',
@@ -34,7 +35,7 @@ export async function getSettings(): Promise<SettingsMap> {
     amazon_tag:
       fromDb.amazon_tag ??
       process.env.NEXT_PUBLIC_AMAZON_TAG ??
-      '',
+      AMAZON_ASSOCIATE_TAG,
     newsletter_endpoint:
       fromDb.newsletter_endpoint ??
       process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT ??

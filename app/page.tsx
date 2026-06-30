@@ -25,66 +25,63 @@ export default async function HomePage() {
     <>
       <Hero />
 
-      {/* FEATURED FINDS */}
       <section className="container-wide pb-20">
         <AnimatedSection>
-          <div className="flex items-end justify-between gap-4 mb-8">
+          <div className="mb-8 grid gap-4 rounded-lg border border-espresso/10 bg-white/70 p-5 shadow-sm backdrop-blur sm:grid-cols-[1fr_auto] sm:items-end sm:p-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold">The Edit</p>
-              <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-espresso">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">The Edit</p>
+              <h2 className="mt-2 font-serif text-3xl text-espresso sm:text-4xl">
                 Featured Finds
               </h2>
+              <p className="mt-2 max-w-xl text-sm leading-6 text-espresso-soft">
+                A curated product wall for spaces that need texture, warmth, and a polished finishing touch.
+              </p>
             </div>
-            <Link
-              href="/products"
-              className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-espresso-soft hover:text-terracotta"
-            >
-              See all 12 finds →
+            <Link href="/products" className="btn-secondary">
+              See all finds
             </Link>
           </div>
         </AnimatedSection>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((p, idx) => (
             <ProductCard key={p.asin} product={p} index={idx} />
           ))}
         </div>
       </section>
 
-      {/* NEWSLETTER */}
-      <section className="container-wide py-16">
+      <section className="container-wide py-10 sm:py-16">
         <AnimatedSection delay={0.1}>
           <NewsletterSignup />
         </AnimatedSection>
       </section>
 
-      {/* LATEST POSTS */}
       <section className="container-wide pb-24">
         <AnimatedSection>
-          <div className="flex items-end justify-between gap-4 mb-8">
+          <div className="mb-8 grid gap-4 rounded-lg border border-espresso/10 bg-white/70 p-5 shadow-sm backdrop-blur sm:grid-cols-[1fr_auto] sm:items-end sm:p-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold">From the Journal</p>
-              <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-espresso">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">From the Journal</p>
+              <h2 className="mt-2 font-serif text-3xl text-espresso sm:text-4xl">
                 Styling guides & ideas
               </h2>
+              <p className="mt-2 max-w-xl text-sm leading-6 text-espresso-soft">
+                Room-by-room ideas for turning saved inspiration into a home that actually works.
+              </p>
             </div>
-            <Link
-              href="/blog"
-              className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-espresso-soft hover:text-terracotta"
-            >
-              All posts →
+            <Link href="/blog" className="btn-secondary">
+              Read the journal
             </Link>
           </div>
         </AnimatedSection>
 
         {posts.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post, idx) => (
               <PostCard key={post.slug} post={post} index={idx} />
             ))}
           </div>
         ) : (
-          <p className="text-espresso-soft">No posts yet — check back soon.</p>
+          <p className="text-espresso-soft">No posts yet; check back soon.</p>
         )}
       </section>
     </>

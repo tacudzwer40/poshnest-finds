@@ -46,18 +46,19 @@ export default async function PostPage({ params }: { params: Params }) {
   const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
-    <article className="bg-cream">
-      <header className="container-narrow pt-12 pb-8 sm:pt-20">
+    <article>
+      <header className="container-narrow pt-10 pb-8 sm:pt-16">
+        <div className="rounded-lg border border-espresso/10 bg-white/75 p-5 shadow-sm backdrop-blur sm:p-8">
         <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-espresso-soft">
           <Link href="/blog" className="hover:text-terracotta">Blog</Link>
           <span>/</span>
           <span>{formatDate(post.date)}</span>
         </div>
-        <h1 className="mt-4 font-serif text-4xl sm:text-6xl leading-[1.1] text-espresso">
+        <h1 className="mt-4 font-serif text-4xl sm:text-6xl leading-[1.05] text-espresso">
           {post.title}
         </h1>
         {post.description && (
-          <p className="mt-5 text-lg text-espresso-soft leading-relaxed">
+          <p className="mt-5 text-lg text-espresso-soft leading-8">
             {post.description}
           </p>
         )}
@@ -65,6 +66,7 @@ export default async function PostPage({ params }: { params: Params }) {
           {post.tags?.map((t) => (
             <span key={t} className="chip">{t}</span>
           ))}
+        </div>
         </div>
       </header>
 
@@ -75,7 +77,7 @@ export default async function PostPage({ params }: { params: Params }) {
       <div className="container-narrow pb-20">
         <RenderMdx content={post.content} />
 
-        <div className="mt-12 rounded-xl border border-espresso/10 bg-ivory/40 px-5 py-4 text-xs italic text-espresso-soft">
+        <div className="mt-12 rounded-lg border border-espresso/10 bg-white/70 px-5 py-4 text-xs italic text-espresso-soft shadow-sm">
           {AMAZON_DISCLOSURE_SHORT} Prices and availability are accurate as of
           the date published and are subject to change.
         </div>

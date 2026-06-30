@@ -1,6 +1,7 @@
 import { neon, type NeonQueryFunction } from '@neondatabase/serverless';
 import { products as seedProducts } from '@/content/products';
 import { getAllPosts as getSeedPosts } from './mdx';
+import { AMAZON_ASSOCIATE_TAG } from './brand';
 
 let _sql: NeonQueryFunction<false, false> | null = null;
 let _migrated = false;
@@ -134,7 +135,7 @@ export async function migrate(): Promise<void> {
     const defaults: Array<[string, string]> = [
       ['site_title', 'PoshNest Finds'],
       ['site_tagline', 'Aesthetic Home & Decor Ideas'],
-      ['amazon_tag', process.env.NEXT_PUBLIC_AMAZON_TAG ?? ''],
+      ['amazon_tag', process.env.NEXT_PUBLIC_AMAZON_TAG ?? AMAZON_ASSOCIATE_TAG],
       ['newsletter_endpoint', process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT ?? ''],
       ['email', 'info@poshnestfinds.com'],
     ];
