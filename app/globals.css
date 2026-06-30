@@ -111,6 +111,20 @@
     left: 120%;
   }
 
+  .btn-secondary {
+    @apply btn border border-espresso/20 bg-cream/70 text-espresso backdrop-blur-sm hover:border-espresso/40 hover:bg-cream;
+  }
+
+  /* Pinterest brand CTA */
+  .btn-pinterest {
+    @apply btn text-cream shadow-sm;
+    background-color: #C2744A;
+  }
+
+  .btn-pinterest:hover {
+    background-color: #A45D38;
+  }
+
   .chip {
     @apply inline-flex items-center gap-1 rounded-full border border-espresso/15 bg-cream/90 px-3 py-1 text-xs font-medium uppercase tracking-wider text-espresso-soft backdrop-blur-sm transition-all duration-300;
   }

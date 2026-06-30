@@ -20,7 +20,9 @@ const inter = Inter({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
 export const viewport: Viewport = {
-  width: 1024,
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#FAF6F1',
 };
 
 export const metadata: Metadata = {
@@ -66,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} bg-cream`}>
       <body className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
